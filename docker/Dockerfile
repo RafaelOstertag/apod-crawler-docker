@@ -16,6 +16,6 @@ COPY --from=jar /tmp/*.jar /home/$USERNAME/apod-crawler.jar
 WORKDIR /home/$USERNAME
 USER $USERID
 VOLUME /download
-ENTRYPOINT ["/usr/bin/java", "-jar", "apod-crawler.jar"]
+ENTRYPOINT ["/usr/bin/java", "-jar", "apod-crawler.jar", "/download"]
 CMD ["--help"]
 
