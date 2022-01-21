@@ -4,7 +4,7 @@ ARG VERSION
 WORKDIR /tmp
 RUN curl -f -k -O https://colossus.kruemel.home/nexus/repository/apod/ch/guengel/apod/apod-crawler/${VERSION}/apod-crawler-${VERSION}-jar-with-dependencies.jar
 
-FROM --platform=$BUILDPLATFORM ghcr.io/graalvm/jdk:java11-21 AS runnable
+FROM --platform=$BUILDPLATFORM ghcr.io/graalvm/graalvm-ce:java11 AS runnable
 ARG BUILDPLATFORM
 ARG USERID=10000
 ARG USERNAME=apod-crawler
