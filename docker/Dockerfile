@@ -1,8 +1,10 @@
 FROM --platform=$BUILDPLATFORM curlimages/curl:7.81.0 AS jar
 ARG BUILDPLATFORM
 ARG VERSION
+ARG REPOSITORY_USER
+ARG REPOSITORY_PASSWORD
 WORKDIR /tmp
-RUN curl -f -k -O https://colossus.kruemel.home/nexus/repository/apod/ch/guengel/apod/apod-crawler/${VERSION}/apod-crawler-${VERSION}-jar-with-dependencies.jar
+RUN curl -Lf -u "${REPOSITORY_USER}:${REPOSITORY_PASSWORD}" -O https://rafaelostertag.jfrog.io/artifactory/maven-release/ch/guengel/apod/apod-crawler/${VERSION}/apod-crawler-${VERSION}-jar-with-dependencies.jar
 
 FROM --platform=$BUILDPLATFORM ghcr.io/graalvm/graalvm-ce:java11 AS runnable
 ARG BUILDPLATFORM
