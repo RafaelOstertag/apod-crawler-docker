@@ -43,15 +43,15 @@ workflows:
       - build-docker-image-amd64:
           context:
             - docker-build
-            - repository-access
+            - repository-read
       - build-docker-image-arm64:
           context:
             - docker-build
-            - repository-access
+            - repository-read
       - create-multi-arch-manifest:
           context:
             - docker-build
-            - repository-access
+            - repository-read
           requires:
             - build-docker-image-amd64
             - build-docker-image-arm64

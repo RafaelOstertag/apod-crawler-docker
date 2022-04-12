@@ -34,7 +34,7 @@ docker buildx build \
   --push \
   --platform "${PLATFORM}" \
   --build-arg VERSION="${VERSION}" \
-  --build-arg REPOSITORY_USER="${REPOSITORY_USER}" \
-  --build-arg REPOSITORY_PASSWORD="${REPOSITORY_PASSWORD}" \
+  --build-arg REPOSITORY_USER="${REPO_USERNAME}" \
+  --build-arg REPOSITORY_PASSWORD="${REPO_PASSWORD}" \
   -t "rafaelostertag/apod-crawler:${VERSION}-${VERSION_SUFFIX}" -f docker/Dockerfile docker
 
